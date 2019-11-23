@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [ ! -z "${AZURE_HTTP_USER_AGENT+x}" ]; then
-    echo "The Azure CAF Rover is not yet supported from the Azure Cloud Shell [coming soon]"
-    exit 1
-fi
 
 res=$(which git)
 if [ ! $? == 0 ]; then

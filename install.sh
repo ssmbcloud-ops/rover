@@ -17,7 +17,7 @@ if [ ! -d ${folder} ]; then
     cd ${aztfmod_folder}
 
     # Clone the rover
-    git clone https://github.com/aztfmod/rover.git
+    git clone https://github.com/brettoj/rover.git
     cd rover
 
     # check the pre-requisites

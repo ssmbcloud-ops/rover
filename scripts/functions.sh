@@ -53,9 +53,10 @@ function verify_azure_session {
 
         if [ "${login_method}" == "sp" ]; then
         echo ""
-        echo "loging in with service pinciple"
+        echo "loging in with Service Principle"
         #login with service principal
-        ret=$(az login --service-principal -u ${spn_id} -p ${sp_secret} --tenant ${tf_command} >/dev/null >&1)
+        #ret=$(
+            az login --service-principal -u ${spn_id} -p ${sp_secret} --tenant ${tf_command} #>/dev/null >&1)
         else
         if [ "${tf_command}" != "login" ] && [ ! -z "${tf_command}" ]; then
             echo "Login to azure with tenant ${tf_command}"

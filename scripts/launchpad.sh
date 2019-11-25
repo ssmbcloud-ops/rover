@@ -15,6 +15,7 @@ tf_action=$2
 login_method=$3
 spn_id=$4
 spn_secret=$5
+sub_id=$6
 #shift 5
 
 tf_command=${tf_action}

@@ -10,14 +10,23 @@ source ./functions.sh
 current_path=$(pwd)
 landingzone_name=$1
 tf_action=$2
-shift 2
 
-tf_command=$@
+#BOJ Update
+login_method=$3
+spn_id=$4
+spn_secret=$5
+#shift 5
+
+tf_command=${tf_action}
 
 echo "tf_action   is : '$(echo ${tf_action})'"
 echo "tf_command  is : '$(echo ${tf_command})'"
 echo "landingzone is : '$(echo ${landingzone_name})'"
 
+#BOJ Update
+echo "Azure Login method is : '$(echo ${login_method})'"
+echo "Azure SPN ID is : '$(echo ${spn_id})'"
+echo "Azure SPN Secret is : '$(echo ${spn_secret})'"
 
 verify_azure_session
 verify_landingzone

@@ -49,13 +49,19 @@ function verify_azure_session {
         echo "Checking existing Azure session"
         session=$(az account show)
 
+        if [ "${login_method}" == "sp"]; then
+        echo ""
+        echo "loging in with service pinciple"
+        #login with service principal
+        ret=$(az login --service-principal -u ${spn_id} -p ${sp_secret} --tenant ${tf_command} >/dev/null >&1)
+        else
         if [ "${tf_command}" != "login" ] && [ ! -z "${tf_command}" ]; then
             echo "Login to azure with tenant ${tf_command}"
             ret=$(az login --tenant ${tf_command} >/dev/null >&1)
         else
             ret=$(az login >/dev/null >&1)
         fi
-
+        fi
         # the second parameter would be the subscription id to target
         if [ ! -z "${tf_action}" ]; then
             echo "Set default subscription to ${tf_action}"

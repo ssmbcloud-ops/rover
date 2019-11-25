@@ -58,9 +58,10 @@ function verify_azure_session {
             ret=$(az login --service-principal --user ${spn_id} --password ${spn_secret} --tenant ${tf_command} >/dev/null >&1)
             else
             if [ "${tf_command}" != "login" ] && [ ! -z "${tf_command}" ]; then
-                #echo "Login to azure with tenant ${tf_command}"
+                echo "Login to azure with tenant ${tf_command}"
                 #ret=$(az login --tenant ${tf_command} >/dev/null >&1)
             else
+                echo "Login to azure with tenant ${tf_command}"
                 #ret=$(az login >/dev/null >&1)
             fi
         fi

@@ -52,18 +52,17 @@ function verify_azure_session {
         echo "the current azure session is : ${session}"
 
         if [ "${login_method}" == "sp" ]; then
-        echo ""
-        echo "loging in with Service Principle"
-        #login with service principal
-        ret=$(az login --service-principal --user ${spn_id} --password ${spn_secret} --tenant ${tf_command} >/dev/null >&1)
-       echo $ret
-        else
-        #if [ "${tf_command}" != "login" ] && [ ! -z "${tf_command}" ]; then
-            #echo "Login to azure with tenant ${tf_command}"
-            #ret=$(az login --tenant ${tf_command} >/dev/null >&1)
-        #else
-            #ret=$(az login >/dev/null >&1)
-       # fi
+            echo ""
+            echo "loging in with Service Principle"
+            #login with service principal
+            ret=$(az login --service-principal --user ${spn_id} --password ${spn_secret} --tenant ${tf_command} >/dev/null >&1)
+            else
+            if [ "${tf_command}" != "login" ] && [ ! -z "${tf_command}" ]; then
+                #echo "Login to azure with tenant ${tf_command}"
+                #ret=$(az login --tenant ${tf_command} >/dev/null >&1)
+            else
+                #ret=$(az login >/dev/null >&1)
+            fi
         fi
         # the second parameter would be the subscription id to target
         if [ ! -z "${tf_action}" ]; then

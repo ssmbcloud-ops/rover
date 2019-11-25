@@ -51,7 +51,7 @@ function verify_azure_session {
 
         echo "the current azure session is : ${session}"
 
-        if [ "${login_method}" == "sp"]; then
+        if [ "${login_method}" == "sp" ]; then
         echo ""
         echo "loging in with service pinciple"
         #login with service principal

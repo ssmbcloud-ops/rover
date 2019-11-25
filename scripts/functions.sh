@@ -49,6 +49,8 @@ function verify_azure_session {
         echo "Checking existing Azure session"
         session=$(az account show)
 
+        echo "the current azure session is : ${session}"
+
         if [ "${login_method}" == "sp"]; then
         echo ""
         echo "loging in with service pinciple"

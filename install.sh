@@ -17,7 +17,7 @@ if [ ! -d ${folder} ]; then
     cd ${ssmbcloud-ops_folder}
 
     # Clone the rover
-    git clone https://github.com/brettoj/rover.git
+    git clone https://github.com/ssmbcloud-ops/rover.git
     cd rover
 
     # check the pre-requisites
